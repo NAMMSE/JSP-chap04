@@ -18,11 +18,11 @@ public class EmployeeAddProcess2 implements Process{
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		Integer employee_id = Integer.parseInt(request.getParameter("employee_id"));
 		String last_name = request.getParameter("last_name");
-		String email = request.getParameter("eamil");
+		String email = request.getParameter("email");
 		String hire_date = request.getParameter("hire_date");
 		String job_id = request.getParameter("job_id");
 		
-		String sql="insert into employees (employee_id, last_name, email, hire_date, job_id) values (?, ?, ?, ? ,?)";
+		String sql="insert into employees2 (employee_id, last_name, email, hire_date, job_id) values (?, ?, ?, ? ,?)";
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		
 		

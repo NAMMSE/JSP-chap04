@@ -18,7 +18,7 @@ public class EmployeeListProcess implements Process{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		ArrayList<Employee> employees = new ArrayList<>();
-		String sql = "SELECT * FROM employees";
+		String sql = "SELECT * FROM employees2 order by employee_id";
 		
 		
 		try(

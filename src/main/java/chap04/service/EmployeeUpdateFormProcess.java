@@ -12,13 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import chap04.database.DBConnector;
 import chap04.model.Job;
 
-// 0726 강사님 코드
-public class EmployeeAddFormProcess implements Process{
+// 0727
+public class EmployeeUpdateFormProcess implements Process{
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-
-		//0727 잘못된 정보 입력 방지 
+		
 		String sql1 = "SELECT MAX(employee_id) as max_id FROM employees2";
 		String sql2 = "SELECT DISTINCT job_id, job_title FROM jobs";
 		
@@ -30,7 +29,7 @@ public class EmployeeAddFormProcess implements Process{
 			ResultSet rs2 = pstmt2.executeQuery();
 		) {
 			//rs1.next(); // rs는 한번 꺼내줘야한다
-			request.setAttribute("new_id",rs1.next() ? rs1.getInt("max_id") + 1 : null);
+			request.setAttribute("employee_id",rs1.next() ? rs1.getInt("max_id") : null);
 			
 			ArrayList<Job> jobs = new ArrayList<>();
 			
@@ -44,10 +43,10 @@ public class EmployeeAddFormProcess implements Process{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
-		//web.xml에 서블릿 매핑을 추가하는 것이 아니라 프로세스를 만들어서 경로를 리턴해주면 된다 
-		return "/WEB-INF/views/employee/addForm2.jsp";
+
+		return "/WEB-INF/views/employee/update.jsp";
 	}
+	
+	
 
 }

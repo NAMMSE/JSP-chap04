@@ -10,7 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import chap04.service.EmployeeAddFormProcess;
 import chap04.service.EmployeeAddProcess2;
+import chap04.service.EmployeeDeleteProcess;
+import chap04.service.EmployeeDeleteProcess2;
 import chap04.service.EmployeeListProcess;
+import chap04.service.EmployeeModifyFormProcess;
+import chap04.service.EmployeeModifyProcess;
+import chap04.service.EmployeeUpdateFormProcess;
+import chap04.service.EmployeeUpdateProcess;
 import chap04.service.Process;
 
 // 0726 수업
@@ -26,6 +32,12 @@ public class DispatcherServlet extends HttpServlet{
 		uri_mapping.put("/employee/list", new EmployeeListProcess());
 		uri_mapping.put("/employee/add_form", new EmployeeAddFormProcess()); // addForm2로 이동
 		uri_mapping.put("/employee/add", new EmployeeAddProcess2());
+		uri_mapping.put("/employee/update_form", new EmployeeUpdateFormProcess());
+		uri_mapping.put("/employee/update", new EmployeeUpdateProcess());
+		uri_mapping.put("/employee/delete", new EmployeeDeleteProcess());
+		uri_mapping.put("/employee/modify", new EmployeeModifyProcess()); //강사님
+		uri_mapping.put("/employee/delete2", new EmployeeDeleteProcess2()); //강사님
+		uri_mapping.put("/employee/modify_form", new EmployeeModifyFormProcess()); //강사님
 	
 	}
 
